@@ -69,7 +69,7 @@ attrition %>% filter(dept == "Sales", gender == "Female")
 ```{r}
 
 # show all the employees in the Human resources dept that are male and are married
-
+attrition %>%  filter(dept == "Human Resources" , isMarried == "Married")
 
 ```
 
@@ -79,7 +79,8 @@ attrition %>% filter(dept == "Sales", gender == "Female")
 # show only the following columns
 # attrition , gender , years_in_current_pos,isMarried, last_year_promoted,
 #then display all employees who left the company and their years_in_current_pos is more than 4 and they are married.
-
+attrition %>% select(c(attrition,gender,years_in_current_pos,isMarried,last_year_promoted)) %>% 
+  filter(attrition == "Yes", years_in_current_pos >4, isMarried == "Married")
 
 ```
 
@@ -88,5 +89,9 @@ attrition %>% filter(dept == "Sales", gender == "Female")
 # age, attrition , gender , years_in_current_pos, last_year_promoted and 
 # show the list of employees btw the ages of 18 and 25 that have left the company
 
+attrition %>% select(c(age,attrition,gender,years_in_current_pos,last_year_promoted)) %>%
+  filter(attrition == "Yes", age ">18" & "<25")
+  
+  
 ```
 
